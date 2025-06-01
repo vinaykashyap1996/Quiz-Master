@@ -3,6 +3,9 @@
 A full-stack project for an interactive **Flashcard Quiz Game**:  
 Users can create their own flashcard decks, take quizzes, and track progress through a fun and engaging interface.
 
+# Want to play the Game ?
+Click the link to test your knowledge: https://quiz-master-public.onrender.com
+
 ## 📦 Monorepo Structure
 
 ```

@@ -1,0 +1,40 @@
+# Node modules
+node_modules/
+
+# Build output
+lib/
+build/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local environment variables
+.env
+.env.*.local
+
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.swp
+
+# Optional: ignore coverage reports if you use testing
+coverage/
+
+# Optional: ignore local lambda server builds (if any)
+.tmp/
+
+
+
+# Local Netlify folder
+.netlify

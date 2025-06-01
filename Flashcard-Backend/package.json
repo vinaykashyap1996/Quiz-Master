@@ -1,0 +1,43 @@
+{
+  "name": "flashcard-backend",
+  "version": "1.0.0",
+  "description": "Build an interactive Flashcard Quiz Game where users can create their own flashcard decks, take quizzes based on the cards, and track their progress. Create a fun and engaging interface.",
+  "license": "ISC",
+  "author": "Vinay Kashyap",
+  "type": "commonjs",
+  "main": "app.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "dev": "nodemon src/index.ts",
+    "test": "jest --verbose"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "joi": "^17.13.3",
+    "lowdb": "^7.0.1",
+    "mongoose": "^8.15.1",
+    "nodemon": "^3.1.10",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-typescript": "^7.27.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.14.0",
+    "@types/supertest": "^6.0.3",
+    "babel-loader": "^10.0.0",
+    "jest": "^29.7.0",
+    "mongodb-memory-server": "^10.1.4",
+    "nodemon": "^3.1.9",
+    "supertest": "^7.1.0",
+    "ts-jest": "^29.3.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}

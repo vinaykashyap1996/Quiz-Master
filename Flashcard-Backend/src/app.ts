@@ -6,7 +6,7 @@ import flashcardRoutes from './routes/flashcards-routes';
 export const app = express();
 
 app.get('/', (req: Request, res: Response): any => {
-    return res.status(200).json({ message: 'Welcome to the Todo Backend' });
+    return res.status(200).json({ message: 'Welcome to the Quiz Master' });
 });
 
 app.use(cors({

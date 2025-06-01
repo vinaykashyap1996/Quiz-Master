@@ -11,7 +11,7 @@ export type Question = {
 };
 
 // Replace with your actual backend URL
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
 // Fetch all questions
 export async function fetchQuestions(): Promise<Question[]> {

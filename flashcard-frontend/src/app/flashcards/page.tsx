@@ -6,66 +6,8 @@ import { QuizResult } from '../quizresult/page';
 import { fetchQuestionsByCategory, Question } from '@/lib/api';
 import { Spinner } from '@/components/ui/spinner';
 import { Button } from '@/components/ui/button';
-
-function ProgressBar({ percent }: { percent: number }) {
-  return (
-    <div className='w-full bg-gray-300 dark:bg-gray-700 h-3'>
-      <motion.div
-        className='bg-indigo-600 h-3 dark:bg-indigo-400'
-        initial={{ width: 0 }}
-        animate={{ width: `${percent}%` }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
-      />
-    </div>
-  );
-}
-
-const QuestionOptions = ({
-  options,
-  selectedOption,
-  answerIndex,
-  isAnswered,
-  onSelect,
-  disableOptions,
-}: {
-  options: string[];
-  selectedOption: number | null;
-  answerIndex: number;
-  isAnswered: boolean;
-  onSelect: (idx: number) => void;
-  disableOptions: boolean;
-}) => {
-  return (
-    <div className='space-y-4'>
-      {options.map((option, idx) => {
-        const isSelected = selectedOption === idx;
-        const isCorrect = answerIndex === idx;
-        return (
-          <motion.button
-            key={idx}
-            onClick={() => onSelect(idx)}
-            disabled={disableOptions}
-            whileHover={{ scale: disableOptions ? 1 : 1.03 }}
-            whileTap={{ scale: disableOptions ? 1 : 0.97 }}
-            className={`w-full text-left px-4 py-3 rounded-md border
-              ${
-                !isAnswered
-                  ? 'bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700'
-                  : isSelected && isCorrect
-                  ? 'bg-green-600 text-white border-green-600'
-                  : isSelected && !isCorrect
-                  ? 'bg-red-600 text-white border-red-600'
-                  : 'bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-700'
-              }
-              transition
-            `}>
-            {option}
-          </motion.button>
-        );
-      })}
-    </div>
-  );
-};
+import { ProgressBar } from '@/components/ui/ProgressBar';
+import { QuestionOptions } from '@/components/QuestionsOptions';
 
 export default function Quiz() {
   const router = useRouter();
@@ -86,7 +28,7 @@ export default function Quiz() {
       setLoading(true);
       try {
         const data = await fetchQuestionsByCategory(categoryId);
-        // Map each question to include options and answerIndex
+        //@ts-expect-error data might not have a 'data' property
         const mapped = (data.data || data).map((q: Question) => ({
           ...q,
           options: q.answers.map((a) => a.text),
@@ -101,8 +43,6 @@ export default function Quiz() {
     }
     fetchQuestions();
   }, [categoryId]);
-
-  console.log('Current questions:', questions);
 
   if (loading) {
     return (

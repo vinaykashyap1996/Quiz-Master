@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
       'www.google.com',
     ],
   },
-  output: 'export'
 };
 
 export default nextConfig;

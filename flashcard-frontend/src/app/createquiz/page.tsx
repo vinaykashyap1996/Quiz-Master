@@ -109,6 +109,7 @@ export default function AddQuestion() {
       <AddCategoryModal
         open={showCategoryModal}
         onClose={() => setShowCategoryModal(false)}
+        // @ts-expect-error missing _id in Category type
         onAdd={handleAddCategory}
       />
       {showAlert && <Alert>Question added successfully!</Alert>}

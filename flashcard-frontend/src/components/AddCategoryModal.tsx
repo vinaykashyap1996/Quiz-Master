@@ -18,7 +18,12 @@ function AddCategoryModal({
 }: {
   open: boolean;
   onClose: () => void;
-  onAdd: (cat: { name: string; description: string; imageUrl: string }) => void;
+  onAdd: (cat: {
+    _id?: string;
+    name: string;
+    description: string;
+    imageUrl: string;
+  }) => void;
 }) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');

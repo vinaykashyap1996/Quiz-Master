@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { addCategory } from '@/lib/api';
 
 export interface Category {
+  _id: string;
   name: string;
   description: string;
   imageUrl: string;

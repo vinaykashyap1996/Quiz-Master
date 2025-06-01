@@ -10,17 +10,14 @@ export type Question = {
     answers: Answer[];
 };
 
-// Replace with your actual backend URL
 const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
-// Fetch all questions
 export async function fetchQuestions(): Promise<Question[]> {
     const res = await fetch(`${API_BASE}/questions`);
     if (!res.ok) throw new Error('Failed to fetch questions');
     return res.json();
 }
 
-// Add a new question
 export async function addQuestion(question: Question): Promise<Question> {
     const res = await fetch(`${API_BASE}/add-question`, {
         method: 'POST',
@@ -31,7 +28,6 @@ export async function addQuestion(question: Question): Promise<Question> {
     return res.json();
 }
 
-// Fetch questions by category
 export async function fetchQuestionsByCategory(category: string): Promise<Question[]> {
     const res = await fetch(`${API_BASE}/questions-by-category?categoryId=${encodeURIComponent(category)}`);
     if (!res.ok) throw new Error('Failed to fetch questions by category');

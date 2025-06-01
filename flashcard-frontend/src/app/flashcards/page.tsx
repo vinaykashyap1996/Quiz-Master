@@ -2,12 +2,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { QuizResult } from '../quizresult/page';
 import { fetchQuestionsByCategory, Question } from '@/lib/api';
 import { Spinner } from '@/components/ui/spinner';
 import { Button } from '@/components/ui/button';
 import { ProgressBar } from '@/components/ui/ProgressBar';
 import { QuestionOptions } from '@/components/QuestionsOptions';
+import { QuizResult } from '@/components/quizresult/Quizresult';
 
 export default function Quiz() {
   const router = useRouter();
@@ -21,7 +21,6 @@ export default function Quiz() {
   const [disableOptions, setDisableOptions] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Fetch questions and map to UI format
   useEffect(() => {
     async function fetchQuestions() {
       if (!categoryId) return;
@@ -52,6 +51,8 @@ export default function Quiz() {
     );
   }
   if (questions.length === 0) {
+    console.log('🚀 ~ Quiz ~ currentQuestion:', currentQuestion);
+    console.log('🚀 ~ Quiz ~ questions:', questions);
     return (
       <div className='min-h-screen flex flex-col items-center justify-center p-6'>
         <p className='text-lg text-gray-700 dark:text-gray-300'>

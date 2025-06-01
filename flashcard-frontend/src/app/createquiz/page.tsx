@@ -111,15 +111,7 @@ export default function AddQuestion() {
         onClose={() => setShowCategoryModal(false)}
         onAdd={handleAddCategory}
       />
-      {showAlert && (
-        <Alert
-          onClose={() => {
-            setShowAlert(false);
-            router.push('/play');
-          }}>
-          Question added successfully!
-        </Alert>
-      )}
+      {showAlert && <Alert>Question added successfully!</Alert>}
       <div className='flex items-start justify-between mb-4 cursor-pointer'>
         <MoveLeft onClick={() => router.back()} />
       </div>
@@ -149,7 +141,7 @@ export default function AddQuestion() {
             </SelectTrigger>
             <SelectContent>
               {categories.map((cat) => (
-                <SelectItem key={cat._id} value={cat._id}>
+                <SelectItem key={cat._id ?? ''} value={cat._id ?? ''}>
                   <div className='flex items-center space-x-2'>
                     <span>{cat.name}</span>
                   </div>

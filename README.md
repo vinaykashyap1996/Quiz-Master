@@ -8,10 +8,10 @@ Users can create their own flashcard decks, take quizzes, and track progress thr
 ```
 Quiz-Master/
 │
-├── frontend/         # React (or other) frontend app
+├── Flashcard-Frontend/# React (or other) frontend app
 │   └── ...           # Frontend source, components, assets, etc.
 │
-├── backend/          # Node.js/Express/MongoDB backend API
+├── Flashcard-Backend/# Node.js/Express/MongoDB backend API
 │   └── ...           # Backend source, models, controllers, etc.
 │
 ├── README.md         # Project documentation (this file)
